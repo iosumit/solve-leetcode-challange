@@ -1,0 +1,12 @@
+{
+  "name": "com.leetcode",
+  "version": "1.0.0",
+  "description": "Practicing leet code questions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sumit",
+  "license": "ISC",
+  "type": "module"
+}
