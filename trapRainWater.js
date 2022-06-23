@@ -38,13 +38,43 @@ var trap = function (height) {
     }
     return sum;
 };
+
+//Two pointers problem
+var trapRainWater = function (height) {
+    let l = 0, r = height.length;
+    let maxLeft = height[l];
+    let maxRight = height[r];
+    let sum = 0;
+
+    while (l < r) {
+        let val = 0;
+        if (maxLeft <= maxRight) {
+            l++;
+            val = getMin(maxLeft, maxRight) - height[l];
+            maxLeft = getMax(maxLeft, height[l]);
+        } else {
+            r--;
+            val = getMin(maxLeft, maxRight) - height[r];
+            maxRight = getMax(maxRight, height[r]);
+        }
+        if (val > 0) {
+            sum += val;
+        }
+    }
+    return sum;
+};
 function getMin(a, b) {
     if (a < b) {
         return a;
     } else return b;
 }
+function getMax(a, b) {
+    if (a > b) {
+        return a;
+    } else return b;
+}
 
 cases.forEach(element => {
-    let a = trap(element.nums);
+    let a = trapRainWater(element.nums);
     console.log("ANS", a, element.ans);
 });
