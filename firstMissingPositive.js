@@ -18,8 +18,20 @@ var firstMissingPositive = function (nums) {
     //         return i;
     //     }
     // }
-    var set = new Set(nums);
-    for (let i = 1; i < nums.length + 2; i++) {
+    // var set = new Set(nums);
+    // for (let i = 1; i < nums.length + 2; i++) {
+    //     if (!set.has(i)) {
+    //         return i;
+    //     }
+    // }
+    let set = new Set();
+    for (let i = 0; i < nums.length; i++) {
+        const element = nums[i];
+        if (element > 0) {
+            set.add(element);
+        }
+    }
+    for (let i = 1; i < set.size + 2; i++) {
         if (!set.has(i)) {
             return i;
         }
