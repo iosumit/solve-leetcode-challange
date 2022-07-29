@@ -10,8 +10,9 @@ const cases = [
  * @param {number[]} newInterval
  * @return {number[][]}
  */
-var intertVal = function (intervals, newInterval) {
+var getIntertVal = function (intervals, newInterval) {
     let result = [];
+    // O(n)
     for (let i = 0; i < intervals.length; i++) {
         if (newInterval[1] < intervals[i][0]) {
             result.push(newInterval);
@@ -34,6 +35,6 @@ var intertVal = function (intervals, newInterval) {
 };
 
 cases.forEach(element => {
-    let a = intertVal(element.nums, element.target);
+    let a = getIntertVal(element.nums, element.target);
     console.log("ANS", a, element.ans);
 });
