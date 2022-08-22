@@ -51,6 +51,7 @@ var isPalindrome = function (head) {
     let fast = head;
     let slow = head;
     let stack = [];
+    //fast ✅
     while (fast != null && fast.next != null) {
         stack.push(slow.val);
         slow = slow.next;
