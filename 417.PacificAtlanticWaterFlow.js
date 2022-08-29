@@ -18,9 +18,9 @@ var pacificAtlantic = function (heights) {
     let atl = new Set();
 
     function dfs(r, c, visit, ph) {
-        let s = "" + r + c;
-        if (r == rows || c == cols || r < 0 || c < 0 ||
-            visit.has(s) || heights[r][c] < ph) {
+        let s = r + "x" + c;
+        if (r < 0 || c < 0 || r >= rows || c >= heights[r].length ||
+            visit.has(s) || ph > heights[r][c]) {
             return;
         }
         visit.add(s);
@@ -41,7 +41,7 @@ var pacificAtlantic = function (heights) {
     let both = [];
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
-            let s = "" + r + c;
+            let s = r + "x" + c;
             if (atl.has(s) && pac.has(s)) {
                 both.push([r, c]);
             }
